@@ -2,7 +2,7 @@
 /**
  *
  */
-angular.module('org.bonitasoft.bonitable.settings', [
+angular.module('org.kireibpm.bonitable.settings', [
   'ui.bootstrap.dropdown',
   'ui.bootstrap.buttons'
   ])
@@ -65,9 +65,9 @@ angular.module('org.bonitasoft.bonitable.settings', [
    * ```javascript
    *     angular
    *       .module('settingsExample', [
-   *         'org.bonitasoft.bonitable',
-   *         'org.bonitasoft.bonitable.settings',
-   *         'org.bonitasoft.templates',
+   *         'org.kireibpm.bonitable',
+   *         'org.kireibpm.bonitable.settings',
+   *         'org.kireibpm.templates',
    *         'ui.bootstrap.tpls'
    *       ])
    *       .filter('slice', function() {

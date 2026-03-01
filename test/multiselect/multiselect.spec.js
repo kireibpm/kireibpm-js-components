@@ -6,9 +6,9 @@ describe('multiselect directive', function(){
   var controller;
   var tags =  tags = [{label:'blue'},{label:'red'}, {label:'green'}];
 
-  beforeEach(module('org.bonitasoft.bonitable'));
-  beforeEach(module('org.bonitasoft.bonitable.selectable'));
-  beforeEach(module('org.bonitasoft.templates'));
+  beforeEach(module('org.kireibpm.bonitable'));
+  beforeEach(module('org.kireibpm.bonitable.selectable'));
+  beforeEach(module('org.kireibpm.templates'));
 
   beforeEach(inject(function($rootScope, $compile, $httpBackend, $document) {
     scope = $rootScope.$new();

@@ -51,7 +51,7 @@ gulp.task('html2js', function() {
   return gulp.src('src/**/*.html')
     .pipe(plumber())
     .pipe(html2js({
-      moduleName: 'org.bonitasoft.templates',
+      moduleName: 'org.kireibpm.templates',
       prefix: 'template/'
     }))
     .pipe(concat('templates.js'))

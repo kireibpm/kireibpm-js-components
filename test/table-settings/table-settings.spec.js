@@ -22,9 +22,9 @@ describe('TableSettings', function(){
 
 
 
-  beforeEach(module('org.bonitasoft.bonitable'));
-  beforeEach(module('org.bonitasoft.bonitable.settings'));
-  beforeEach(module('org.bonitasoft.templates'));
+  beforeEach(module('org.kireibpm.bonitable'));
+  beforeEach(module('org.kireibpm.bonitable.settings'));
+  beforeEach(module('org.kireibpm.templates'));
 
   beforeEach(module(function($filterProvider){
     $filterProvider.register('translate', function(){

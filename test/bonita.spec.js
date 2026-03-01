@@ -5,7 +5,7 @@ describe('bonitable directive', function(){
   var scope;
   var $timeout;
 
-  beforeEach(module('org.bonitasoft.bonitable'));
+  beforeEach(module('org.kireibpm.bonitable'));
 
   beforeEach(inject(function($rootScope, $compile, $document) {
     scope = $rootScope.$new();

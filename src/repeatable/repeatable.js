@@ -1,5 +1,5 @@
 angular
-  .module('org.bonitasoft.bonitable.repeatable', ['org.bonitasoft.bonitable'])
+  .module('org.kireibpm.bonitable.repeatable', ['org.kireibpm.bonitable'])
   .directive('columnTemplate', function($compile, $timeout) {
     return {
       restrict: 'A',
@@ -66,9 +66,9 @@ angular
  * ```javascript
  *   angular
  *     .module('boRepeaterExample', [
- *       'org.bonitasoft.bonitable',
- *       'org.bonitasoft.bonitable.repeatable',
- *       'org.bonitasoft.templates'
+ *       'org.kireibpm.bonitable',
+ *       'org.kireibpm.bonitable.repeatable',
+ *       'org.kireibpm.templates'
  *     ])
  *     .run(function($scope){
  *       $scope.users = [
@@ -218,9 +218,9 @@ angular
       <file name="script.js">
         angular
           .module('boRepeatConfigExample', [
-            'org.bonitasoft.bonitable',
-            'org.bonitasoft.bonitable.repeatable',
-            'org.bonitasoft.templates'
+            'org.kireibpm.bonitable',
+            'org.kireibpm.bonitable.repeatable',
+            'org.kireibpm.templates'
           ])
           .run(function($rootScope){
             $rootScope.users = [

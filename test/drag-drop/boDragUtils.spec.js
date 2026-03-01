@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  beforeEach(module('org.bonitasoft.dragAndDrop'));
+  beforeEach(module('org.kireibpm.dragAndDrop'));
 
   describe('Service boDragUtils', function() {
 

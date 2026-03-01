@@ -20,7 +20,7 @@
     }
   }
 
-  beforeEach(module('org.bonitasoft.dragAndDrop', function ($provide) {
+  beforeEach(module('org.kireibpm.dragAndDrop', function ($provide) {
     // Mock EventMap
     $provide.decorator('boDragEvent', function ($delegate) {
       $delegate.map = {

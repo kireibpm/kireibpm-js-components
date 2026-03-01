@@ -2,8 +2,8 @@
  * Created by fabiolombardi on 15/07/2015.
  */
 angular
-    .module('org.bonitasoft.bonitable.storable', [
-        'org.bonitasoft.bonitable',
+    .module('org.kireibpm.bonitable.storable', [
+        'org.kireibpm.bonitable',
         'ngStorage'
     ])
     .directive('boStorable', function($localStorage) {

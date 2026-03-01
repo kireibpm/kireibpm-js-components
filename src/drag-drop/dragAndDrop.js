@@ -1,4 +1,4 @@
-angular.module('org.bonitasoft.dragAndDrop',[])
+angular.module('org.kireibpm.dragAndDrop',[])
   .provider('boDraggableItem', function() {
 
     'use strict';

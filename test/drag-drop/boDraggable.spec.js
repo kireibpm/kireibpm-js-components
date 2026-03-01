@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  beforeEach(module('org.bonitasoft.dragAndDrop', function () {}));
+  beforeEach(module('org.kireibpm.dragAndDrop', function () {}));
 
   describe('Directive boDraggable', function() {
 

@@ -32,8 +32,8 @@ describe('storable directive', function() {
   };
 
 
-  beforeEach(module('org.bonitasoft.bonitable'));
-  beforeEach(module('org.bonitasoft.bonitable.storable'));
+  beforeEach(module('org.kireibpm.bonitable'));
+  beforeEach(module('org.kireibpm.bonitable.storable'));
 
 
   beforeEach(inject(function($rootScope, $localStorage) {

@@ -1,7 +1,10 @@
-bonita-js-components [![Build Status](https://travis-ci.org/bonitasoft/bonita-js-components.svg?branch=ag_dragdrop)](https://travis-ci.org/bonitasoft/bonita-js-components)
+kireibpm-js-components
 ====================
 
-bonita angular components library.
+KireiBPM AngularJS components library.
+
+This repository is a rebranded fork of `bonita-js-components`.
+Angular module namespaces (`org.bonitasoft.*`) are intentionally kept for runtime compatibility.
 
 ## requirements
 
@@ -31,7 +34,7 @@ First, launch ``yarn install`` to install the dependencies.
  
 ## Todo
 
- - [ ] bonita.resizable (see http://bz.var.ru/comp/web/resizable.html )
+ - [ ] kireibpm.resizable (see http://bz.var.ru/comp/web/resizable.html )
 
 ## Publishing a new version
 

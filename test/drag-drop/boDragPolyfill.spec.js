@@ -1,6 +1,25 @@
 (function() {
   'use strict';
 
+  // Helper used to emulate IE9 userAgent in modern runners.
+  // In some environments navigator.userAgent is non-writable, so we try
+  // to redefine the property first and fall back to replacing navigator.
+  function setUserAgent(win, userAgent) {
+    try {
+      Object.defineProperty(win.navigator, 'userAgent', {
+        value: userAgent,
+        configurable: true
+      });
+    } catch (e) {
+      Object.defineProperty(win, 'navigator', {
+        value: {
+          userAgent: userAgent
+        },
+        configurable: true
+      });
+    }
+  }
+
   beforeEach(module('org.bonitasoft.dragAndDrop', function ($provide) {
     // Mock EventMap
     $provide.decorator('boDragEvent', function ($delegate) {
@@ -51,8 +70,6 @@
     }));
 
     beforeEach(function() {
-      spyOn($window,'navigator');
-
       dom = compile('<aside class="container-siderbar" bo-drag-polyfill><div class="item-drag" bo-draggable id="lol">test</div></aside>')(scope);
       scope.$apply();
     });
@@ -65,7 +82,7 @@
 
       beforeEach(function() {
         document.body.innerHTML = '';
-        $window.navigator.userAgent = 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)';
+        setUserAgent($window, 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)');
         dom = compile('<aside class="container-siderbar" bo-drag-polyfill><div class="item-drag" bo-draggable id="test">test</div><div class="item-drag" data-bo-draggable id="lol"></aside>')(scope);
         angular.element(document.body).append(dom);
         scope.$apply();

@@ -1,5 +1,7 @@
 language: node_js
 node_js:
-  - "0.10"
-before_install:
-  - yarn install
+  - "20"
+install:
+  - yarn install --frozen-lockfile
+script:
+  - yarn test:ci

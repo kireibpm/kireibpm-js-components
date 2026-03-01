@@ -20,7 +20,6 @@ var cssmin = require('gulp-csso');
 
 /* dev */
 var connect = require('gulp-connect');
-var browser = require('gulp-open');
 
 var gettext = require('gulp-angular-gettext');
 
@@ -61,7 +60,7 @@ gulp.task('html2js', function() {
 
 gulp.task('pot', function () {
   return gulp.src(['src/**/*.html', 'src/**/*.js'])
-    .pipe(gettext.extract('bonita-js-components.pot', {}))
+    .pipe(gettext.extract('kireibpm-js-components.pot', {}))
     .pipe(gulp.dest('i18n/'));
 });
 
@@ -153,17 +152,6 @@ gulp.task('webserver',['assets'], function() {
   });
 });
 
-/**
- * Open task
- * Launch default browser on local server url
- */
-gulp.task('open', ['webserver'],function() {
-  return gulp.src('demo/index.html')
-    .pipe(browser('', {
-      url: 'http://localhost:'+opt.port+'/index.html'
-    }));
-});
-
 /* Test */
 var karma = require('karma').server;
 
@@ -219,7 +207,7 @@ gulp.task('clean:docs', function(done){
 gulp.task('ngdocs', ['docs:js', 'docs:css', 'docs:assets'], function () {
   var gulpDocs = require('gulp-ngdocs');
   var options = {
-    title:'bonita-js-components',
+    title:'kireibpm-js-components',
     html5Mode: false,
     startPage: '/api/bonitable',
     scripts:[
@@ -290,7 +278,7 @@ gulp.task('env:dist', function() {
 });
 
 gulp.task('dist', ['env:dist','clean', 'test', 'dist:css', 'minify', 'pot']);
-gulp.task('dev', ['assets', 'bundle:js:tpl', 'watch', 'open']);
+gulp.task('dev', ['assets', 'bundle:js:tpl', 'watch', 'webserver']);
 
 gulp.task('default', ['test']);
 

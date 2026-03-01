@@ -2,6 +2,10 @@
 // Generated on Mon Oct 27 2014 17:38:08 GMT+0100 (CET)
 
 module.exports = function(config) {
+  // CI runs in restricted/containerized environments where Chrome sandbox
+  // often cannot initialize. Keep local runs on standard ChromeHeadless.
+  var isCi = !!process.env.CI;
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -73,9 +77,17 @@ module.exports = function(config) {
     autoWatch: false,
 
 
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-dev-shm-usage']
+      }
+    },
+
     // start these browsers
+    // CI: ChromeHeadlessNoSandbox, local: ChromeHeadless
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: [isCi ? 'ChromeHeadlessNoSandbox' : 'ChromeHeadless'],
 
 
     // Continuous Integration mode

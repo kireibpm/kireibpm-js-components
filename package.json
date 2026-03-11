@@ -1,6 +1,6 @@
 {
   "name": "kireibpm-js-components",
-  "version": "0.10.0",
+  "version": "1.0.0",
   "description": "AngularJS UI components and utilities for KireiBPM web applications",
   "main": "index.js",
   "scripts": {

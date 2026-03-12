@@ -4,16 +4,17 @@ kireibpm-js-components
 KireiBPM AngularJS components library.
 
 This repository is a rebranded fork of `bonita-js-components`.
-Angular module namespaces (`org.bonitasoft.*`) are intentionally kept for runtime compatibility.
+The distributed bundle keeps the historical `bonita-lib*` artifact names for compatibility with existing consumers.
 
-## requirements
+## Requirements
 
+You need Node.js, Yarn and npm.
 
-You need to have __nodejs__, __yarn__, __npm__ and __gulp__
+The repository is maintained and packed with Node 18+ and Yarn 1.22+.
 
-Node version 6 should be used.
+The library targets AngularJS 1.x applications and is currently consumed by KireiBPM UI Designer.
 
-This library also needs angular 1.4.5 to run properly.
+## Included components
 
  - [x] bo-sortable (bo-sortable sort-options="sortOptions" on-sort="onSort( options)")
  - [x] bo-storable (bo-storable="storageId" on-storage-loaded="loadContent()")
@@ -24,13 +25,14 @@ This library also needs angular 1.4.5 to run properly.
  - [x] drag and drop
  - [x] draggable-columns (need to add ng-sortable dependency to make it work as it is not imported by default)
 
-## Available command
+## Available commands
 
-First, launch ``yarn install`` to install the dependencies.
-- ``$ npm start``: launch the developpement environnement with a local server+livreload. Also, unit tests ran in background
-- ``$ npm run dist`` : create a dist folder with minified/concatenated files. Please not that this command is only available in the _release_ branch.
-- ``$ npm test`` will run the unit test suite on PhantomJS
-- ``$ npm run documentation`` will generate the a ngdoc documentation site inside a ``./docs/ directory``
+First, run `yarn install` to install dependencies.
+
+- `$ npm start`: launch the development environment with a local server and livereload
+- `$ npm run dist`: regenerate the `dist/` bundle that is shipped to consumers
+- `$ npm test`: run the Karma test suite
+- `$ npm run documentation`: generate the ngdoc site inside `./docs/`
  
 ## Todo
 
@@ -38,36 +40,35 @@ First, launch ``yarn install`` to install the dependencies.
 
 ## Publishing a new version
 
-**The master branch do not contains any dist files.**
+The published package contains only the prebuilt assets from `dist/` plus package metadata.
 
-There is a dedicated branch which holds dist files to be distributed. Once you're ready to ship a new version
+When you're ready to ship a new version:
 
-0. If not already did, bump version number in ``package.json`` and commit changes.
+0. Bump the version in `package.json` and regenerate the distribution files.
 
-1. Go to the ```release`` branch, marge master on it, and launch the dist build.
+1. Build and verify the package.
 ```console
-$ git checkout release
-$ git merge master
+$ yarn install
 $ npm run dist
+$ npm test
+$ npm pack --dry-run
 ```
 
-2. Commit the new dist files in ``release`` and tag the branch accordingly to your package.json version number
+2. Publish the package to npm.
 ```console
-$ git commit -m"Release x.x.x"
-$ git tag -a x.x.x
-$ git push --follow-tags
+$ npm publish
 ```
 
-3. Celebrate!
+3. Update downstream repositories to consume the published version instead of a GitHub tarball.
 
-> The code coverage is build when you run a test, you can access to it by opening the `./coverage/Phantom*/index.html` in a browser.
+The code coverage site is generated when you run tests and is available under `./coverage/`.
 
 ## Documentation
-To ease the documentation process
+To ease the documentation process:
 ```console
 $ npm run documentation
 ```
-will run a local server (with livereload) and generate the docs sites each time you update the js files.
+This runs a local server with livereload and regenerates docs when source files change.
 
 ## Code coverage
-The karma test suite provides code coverage through karma-istanbul. The generated coverage site is at the root of the project, in the ``/coverage/`` folder.
+The Karma test suite provides code coverage through karma-istanbul. The generated coverage site is located in `./coverage/`.

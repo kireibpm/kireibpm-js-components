@@ -8,6 +8,8 @@
     "start": "gulp dev",
     "predist": "gulp predist",
     "dist": "gulp dist",
+    "release:npm": "./infrastructure/release.sh",
+    "publish:npm": "./infrastructure/publish.sh",
     "predocumentation": "gulp clean:docs",
     "documentation": "gulp documentation",
     "tdd": "gulp dev & npm run testwatch",

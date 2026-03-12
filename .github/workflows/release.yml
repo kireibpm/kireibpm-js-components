@@ -1,0 +1,55 @@
+name: Release npm package
+
+on:
+  workflow_dispatch:
+    inputs:
+      releaseType:
+        description: Semver release type [patch, minor, major, prepatch, preminor, premajor, prerelease]
+        required: true
+        default: patch
+      npmPublish:
+        description: true to publish the released package to npm
+        required: true
+        default: 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    if: ${{ startsWith(github.ref_name, 'release') }}
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_TOKEN: ${{ secrets.KIREIBPM_CI_PAT != '' && secrets.KIREIBPM_CI_PAT || github.token }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ env.RELEASE_TOKEN }}
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Config git
+        run: |
+          git config --local user.email "ui-designer-bot@users.noreply.github.com"
+          git config --local user.name "ui-designer-bot"
+
+      - name: Release
+        run: |
+          ./infrastructure/release.sh \
+          --releaseType=${{ github.event.inputs.releaseType }} \
+          --git-push
+
+      - name: Publish on npm
+        if: ${{ success() && github.event.inputs.npmPublish == 'true' }}
+        run: ./infrastructure/publish.sh
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

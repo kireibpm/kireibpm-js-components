@@ -10,6 +10,7 @@ The release workflow expects these repository secrets:
 ## Release workflow
 
 Use the `Release npm package` workflow from `main`.
+The package published by this workflow is `@kireibpm/js-components`.
 
 Inputs:
 
@@ -25,6 +26,18 @@ The workflow:
 5. creates a release commit and tag,
 6. pushes the branch and tag,
 7. optionally publishes to npm using `NPM_TOKEN`.
+
+## Downstream consumption
+
+Repositories that still import the package under the historical dependency key can switch from the GitHub tarball to npm without changing filesystem paths by using an alias:
+
+```json
+{
+	"dependencies": {
+		"bonita-js-components": "npm:@kireibpm/js-components@1.0.3"
+	}
+}
+```
 
 ## Local validation
 

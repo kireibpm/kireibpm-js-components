@@ -1,5 +1,5 @@
 {
-  "name": "kireibpm-js-components",
+  "name": "@kireibpm/js-components",
   "version": "1.0.2",
   "description": "AngularJS UI components and utilities for KireiBPM web applications",
   "main": "dist/bonita-lib.js",

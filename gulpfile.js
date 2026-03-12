@@ -285,8 +285,8 @@ gulp.task('default', ['test']);
 gulp.task('predist', function(done){
   exec('git rev-parse --abbrev-ref HEAD', {}, function(err, stdout){
     var branchName = stdout.trim();
-    if (!/^release(\/.*)?$/.test(branchName)) {
-      done(new Error('you can only run npm dist from a release branch'));
+    if (branchName !== 'main') {
+      done(new Error('you can only run npm dist from main'));
       return;
     }
 

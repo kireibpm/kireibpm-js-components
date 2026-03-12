@@ -9,7 +9,7 @@ The release workflow expects these repository secrets:
 
 ## Release workflow
 
-Use the `Release npm package` workflow from a `release` branch.
+Use the `Release npm package` workflow from `main`.
 
 Inputs:
 

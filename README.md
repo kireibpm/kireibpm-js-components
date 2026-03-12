@@ -42,7 +42,7 @@ First, run `yarn install` to install dependencies.
 
 The published package contains only the prebuilt assets from `dist/` plus package metadata.
 
-The recommended release path is the `Release npm package` GitHub Actions workflow described in [docs/npm-publishing.md](docs/npm-publishing.md).
+The recommended release path is the `Release npm package` GitHub Actions workflow from `main`, described in [docs/npm-publishing.md](docs/npm-publishing.md).
 
 When you're ready to ship a new version:
 

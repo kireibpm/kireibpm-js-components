@@ -56,8 +56,8 @@ fi
 cd "$BASE_DIR" || exit 1
 
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-if [[ ! "$CURRENT_BRANCH" =~ ^release(/.*)?$ ]]; then
-  echo "ERROR: releases must be created from a release branch, got '$CURRENT_BRANCH'"
+if [[ "$CURRENT_BRANCH" != "main" ]]; then
+  echo "ERROR: releases must be created from 'main', got '$CURRENT_BRANCH'"
   exit 1
 fi
 

@@ -3,7 +3,7 @@
 
 KireiBPM AngularJS components library.
 
-This repository is a rebranded fork of `bonita-js-components`.
+This repository is a rebranded fork of the Bonita AngularJS components library.
 The distributed bundle keeps the historical `bonita-lib*` artifact names for compatibility with existing consumers.
 The npm package is published as `@kireibpm/js-components`.
 
@@ -64,7 +64,8 @@ $ npm publish
 
 3. Update downstream repositories to consume the published version instead of a GitHub tarball.
 
-	Existing consumers can keep the dependency key `bonita-js-components` by using an npm alias such as `bonita-js-components@npm:@kireibpm/js-components@<version>`.
+	Standard npm consumers should depend directly on `@kireibpm/js-components@<version>`.
+	Repositories that still expose dependencies through a bower-style bridge can map it under their own compatibility namespace, for example `@bower_components/kireibpm-js-components`.
 
 The code coverage site is generated when you run tests and is available under `./coverage/`.
 

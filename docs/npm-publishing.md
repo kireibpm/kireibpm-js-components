@@ -29,12 +29,14 @@ The workflow:
 
 ## Downstream consumption
 
-Repositories that still import the package under the historical dependency key can switch from the GitHub tarball to npm without changing filesystem paths by using an alias:
+Standard npm consumers should depend directly on `@kireibpm/js-components`.
+
+Repositories that still expose front-end libraries through a bower-style compatibility namespace can bridge to the published package like this:
 
 ```json
 {
 	"dependencies": {
-		"bonita-js-components": "npm:@kireibpm/js-components@1.0.3"
+		"@bower_components/kireibpm-js-components": "npm:@kireibpm/js-components@1.0.3"
 	}
 }
 ```
